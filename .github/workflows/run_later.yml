@@ -18,7 +18,7 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: sample-artifact
-          path: artifact-download
+          path: sample_file.txt
 
       - name: Cat file content
         run: cat artifact-download/sample_file.txt
