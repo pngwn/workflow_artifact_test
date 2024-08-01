@@ -8,9 +8,8 @@ jobs:
   create-artifact:
     runs-on: ubuntu-latest
     steps:
-      - name: Create a file
-        run: echo "This is a sample file content" > sample_file.txt
-
+      - name: Checkout code
+        uses: actions/checkout@v4
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
