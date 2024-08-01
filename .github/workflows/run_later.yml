@@ -23,4 +23,4 @@ jobs:
           run-id: ${{ github.event.workflow_run.id }}
 
       - name: Cat file content
-        run: cat artifact-download/sample_file.txt
+        run: cat sample_file.txt
