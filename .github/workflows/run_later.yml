@@ -15,26 +15,10 @@ jobs:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     steps:
       - name: Download artifact
-        uses: actions/github-script@v6
+        uses: actions/download-artifact@v3
         with:
-          script: |
-            const artifacts = await github.rest.actions.listWorkflowRunArtifacts({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              run_id: ${{ github.event.workflow_run.id }}
-            })
-            const matchArtifact = artifacts.data.artifacts.find(artifact => artifact.name === "sample-artifact")
-            const download = await github.rest.actions.downloadArtifact({
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              artifact_id: matchArtifact.id,
-              archive_format: 'zip'
-            })
-            const fs = require('fs')
-            fs.writeFileSync('${{github.workspace}}/sample-artifact.zip', Buffer.from(download.data))
-
-      - name: Unzip artifact
-        run: unzip sample-artifact.zip
+          name: sample-artifact
+          path: artifact-download
 
       - name: Cat file content
-        run: cat sample_file.txt
+        run: cat artifact-download/sample_file.txt
