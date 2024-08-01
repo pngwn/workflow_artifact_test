@@ -14,5 +14,5 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sample-artifact
-          path: sample_file.txt
+          name: artifact-dir
+          path: dir/subdir

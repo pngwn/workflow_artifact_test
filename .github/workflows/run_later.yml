@@ -5,8 +5,8 @@ on:
     workflows: ["Create and Upload Artifact"]
     types:
       - completed
-      
-permissions: 
+
+permissions:
   actions: read
 
 jobs:
@@ -17,9 +17,12 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: sample-artifact
+          name: artifact-dir
+          path: different_dir
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
 
-      - name: Cat file content
-        run: cat sample_file.txt
+      - name: list files
+        run: ls -R different_dir
+      - name: cat file
+        run: cat different_dir/four.txt
