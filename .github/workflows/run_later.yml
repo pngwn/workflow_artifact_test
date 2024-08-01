@@ -5,6 +5,9 @@ on:
     workflows: ["Create and Upload Artifact"]
     types:
       - completed
+      
+permissions: 
+  actions: read
 
 jobs:
   download-artifact:
