@@ -1,0 +1,18 @@
+name: Create and Upload Artifact
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  create-artifact:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create a file
+        run: echo "This is a sample file content" > sample_file.txt
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: sample-artifact
+          path: sample_file.txt
