@@ -24,4 +24,22 @@ jobs:
         with:
           path: output.json
       - run: echo "${{ toJson(steps.json.outputs) }}"
+      - uses: gradio-app/github/actions/filter-paths@main
+        id: one
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: one
+      - run: echo "${{ toJson(steps.one.outputs) }}"
+      - uses: gradio-app/github/actions/filter-paths@main
+        id: two
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: two
+      - run: echo "${{ toJson(steps.two.outputs) }}"
+      - uses: gradio-app/github/actions/filter-paths@main
+        if: three
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          name: three
+      - run: echo "${{ toJson(steps.three.outputs) }}"
       

@@ -1,0 +1,12 @@
+{
+  "one": [
+    "dir/subdir/one.txt"
+  ],
+  "two": [
+    "**/*.txt"
+  ],
+  "three": [
+    "dir/subdir/two.txt",
+    "dir/subdir/three.txt"
+  ]
+}
