@@ -6,6 +6,11 @@ on:
 
 jobs:
   do-thing:
+    name: "test-python-${{ matrix.os }}-${{ matrix.test-type == 'flaky' && 'flaky' || 'not-flaky'}}"
+    strategy:
+      matrix:
+        os: ["ubuntu-latest", "windows-latest"]
+        test-type: ["not flaky", "flaky"]
     runs-on: ubuntu-latest
     steps:
       - run: echo '${{ toJson(github) }}'
