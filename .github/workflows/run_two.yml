@@ -37,7 +37,7 @@ jobs:
           name: two
       - run: echo "${{ toJson(steps.two.outputs) }}"
       - uses: gradio-app/github/actions/filter-paths@main
-        if: three
+        id: three
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: three
