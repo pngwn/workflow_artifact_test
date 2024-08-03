@@ -11,6 +11,8 @@ jobs:
     name: deploy to staging
     runs-on: ubuntu-22.04
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
       - uses: gradio-app/github/actions/input-to-json@main
         with:
           path: output.json
