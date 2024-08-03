@@ -31,20 +31,20 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: one
-          path: ".github/workflows/filter.json"
+          path: ".github/workflows/filters.json"
       - run: echo "${{ toJson(steps.one.outputs) }}"
       - uses: gradio-app/github/actions/filter-paths@main
         id: two
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: two
-          path: ".github/workflows/filter.json"
+          path: ".github/workflows/filters.json"
       - run: echo "${{ toJson(steps.two.outputs) }}"
       - uses: gradio-app/github/actions/filter-paths@main
         id: three
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           name: three
-          path: ".github/workflows/filter.json"
+          path: ".github/workflows/filters.json"
       - run: echo "${{ toJson(steps.three.outputs) }}"
       
