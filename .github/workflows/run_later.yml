@@ -21,7 +21,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
 
-      - name: list files
-        run: ls -R dir/subdir
+      # - name: list files
+      #   run: ls -R dir/subdir
       - name: cat file
         run: cat one.txt
