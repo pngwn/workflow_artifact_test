@@ -18,11 +18,10 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: artifact-dir
-          path: different_dir
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
 
       - name: list files
-        run: ls -R different_dir
+        run: ls -R dir/subdir
       - name: cat file
-        run: cat different_dir/four.txt
+        run: cat one.txt
