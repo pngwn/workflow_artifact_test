@@ -32,4 +32,4 @@ jobs:
       - name: pull vercel project
         run: vercel pull --token ${{ secrets.VERCEL }} --yes
       - name: deploy site
-        run: vercel deploy --prebuilt --token ${{ secrets.VERCEL }} --yes --cwd js/website/.vercel
+        run: vercel deploy --prebuilt --token ${{ secrets.VERCEL }} --yes --cwd js/website
