@@ -18,15 +18,18 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: vercel
+          path: .vercel
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
       - name: Cat artifact
         run: ls -R .
-      # - name: install node
-      #   uses: actions/setup-node@v2
-      #   with:
-      #     node-version: "18"
-      # - name: install vercel cli
-      #   run: npm install -g vercel
-      # - name: deploy site
-      #   run: vercel deploy --prebuilt
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: "18"
+      - name: install vercel cli
+        run: npm install -g vercel
+      - name: pull vercel secrets
+        run: vercel pull --token ${{ secrets.VERCEL }}
+      - name: deploy site
+        run: vercel deploy --prebuilt
