@@ -30,6 +30,12 @@ jobs:
       - name: install vercel cli
         run: npm install -g vercel
       - name: pull vercel project
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: vercel pull --token ${{ secrets.VERCEL }} --yes --cwd js/website
       - name: deploy site
+        env:
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
         run: vercel deploy --prebuilt --token ${{ secrets.VERCEL }} --yes --cwd js/website
