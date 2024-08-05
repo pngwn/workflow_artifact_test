@@ -22,7 +22,7 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           run-id: ${{ github.event.workflow_run.id }}
       - name: Cat artifact
-        run: ls -R .
+        run: ls -Ra .
       - name: install node
         uses: actions/setup-node@v2
         with:
@@ -32,4 +32,4 @@ jobs:
       - name: pull vercel project
         run: vercel pull --token ${{ secrets.VERCEL }} --yes
       - name: deploy site
-        run: vercel deploy --prebuilt --token ${{ secrets.VERCEL }} --yes
+        run: vercel deploy --prebuilt --token ${{ secrets.VERCEL }} --yes --cwd js/website/.vercel
