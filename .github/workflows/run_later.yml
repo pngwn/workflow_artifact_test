@@ -30,6 +30,6 @@ jobs:
       - name: install vercel cli
         run: npm install -g vercel
       - name: pull vercel project
-        run: vercel pull --token ${{ secrets.VERCEL }} --yes
+        run: vercel pull --token ${{ secrets.VERCEL }} --yes --cwd js/website
       - name: deploy site
         run: vercel deploy --prebuilt --token ${{ secrets.VERCEL }} --yes --cwd js/website
